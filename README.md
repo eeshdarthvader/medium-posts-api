@@ -18,4 +18,4 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 Create public api using Medium RSS feed, to fetch your articles and return JSON response
 
-(posts.png)
+(./posts.png)
