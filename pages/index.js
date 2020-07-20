@@ -1,8 +1,6 @@
-import Head from 'next/head';
 import useSwr from 'swr';
-import renderPostCard from '../src/post-card';
 
-const fetcher = url => fetch(url).then(res => res.text());
+const fetcher = url => fetch(url).then(res => res.json());
 
 export default function Home() {
     const { data, error } = useSwr('/api/medium/posts', fetcher);
@@ -10,14 +8,25 @@ export default function Home() {
     if (error) return <div>Failed to load posts</div>;
     if (!data) return <div>Loading...</div>;
 
+    console.log('data', data);
+
     return (
         <div className="container">
-            <Head>
-                <title>Create Next App</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-
-            <main dangerouslySetInnerHTML={{ __html: data }} />
+            {data.map(post => {
+                return (
+                    <a
+                        href={post.link}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        key={post.id}
+                        className="column"
+                    >
+                        <article className="article" key={post.id}>
+                            {post.title}
+                        </article>
+                    </a>
+                );
+            })}
         </div>
     );
 }
