@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Yantramanav:100,300,400');
+:root {
+    --card-width: 360px;
+    --grid-gap: 3rem;
+    --background-color: #f8f8f8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body,
+main {
+    margin: 0;
+    font-family: Yantramanav, sans-serif;
+    font-size: 17px;
+    line-height: 1.3em;
+    font-weight: 300;
+    overflow-x: hidden;
+}
+
+div {
+    margin: 0 auto;
+    overflow: auto;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li svg {
+    float: left;
+    margin: 10px;
+}
